@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/text_gallery"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:textAlignment="center"-->
+    <!--        android:textSize="20sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            style="@style/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Today Attendance"/>
+        <RadioGroup
+            android:id="@+id/rbGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <RadioButton
+                android:id="@+id/rbLocal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Local" />
+
+            <RadioButton
+                android:id="@+id/rbOutstation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Out Station" />
+
+            <RadioButton
+                android:id="@+id/rbExstation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ex Station" />
+
+            <RadioButton
+                android:id="@+id/rbRegular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Office Regular Work" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/placeLayout"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                app:errorEnabled="true"
+                android:layout_height="match_parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Place" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioButton
+                android:id="@+id/rbTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Training" />
+
+            <RadioButton
+                android:id="@+id/rbMeeting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Meeting" />
+        </RadioGroup>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note: "
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="5dp"
+            android:text="&#8226; Attendance entered before 11am will be considered full working day."/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="5dp"
+            android:text="&#8226; Attendance entered between 11.01am to 1.00pm will be considered as 1/2 day leave."/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:layout_marginBottom="5dp"
+            android:text="&#8226; Attendance entered after 1.00pm will be considered as full day leave."/>
+
+    </LinearLayout>
+
+
+</ScrollView>
