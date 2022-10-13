@@ -1,11 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/flattnd"
     android:padding="10dp"
     tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/extrabold"
+            android:text="@string/Attendence"
+            android:textSize="30dp" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="350dp"
+            android:backgroundTint="@color/skyblue"
+            app:cardCornerRadius="20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rlAttendance1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/tvAR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/bold"
+                        android:text="Attendances"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlExpenseReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/View1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/bold"
+                        android:text="Expenses"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlVisitEntryReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/View2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/bold"
+                        android:text="Leaving Applications"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlQuoteReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/View3"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/bold"
+                        android:text="Quote Reports"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+
+                </RelativeLayout>
+
+
+                <View
+                    android:id="@+id/View1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
+                    android:layout_below="@+id/rlAttendance1"
+                    android:background="@color/white" />
+
+                <View
+                    android:id="@+id/View3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
+                    android:visibility="gone"
+                    android:layout_below="@+id/rlVisitEntryReport"
+                    android:background="@color/white" />
+
+
+                <View
+                    android:id="@+id/View2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.9dp"
+                    android:layout_below="@+id/rlExpenseReport"
+                    android:background="@color/white" />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
+<!--    Attendance-->
 
     <!--    <TextView-->
     <!--        android:id="@+id/text_gallery"-->
@@ -21,100 +165,113 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            style="@style/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Today Attendance"/>
-        <RadioGroup
-            android:id="@+id/rbGroup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+<!--        <TextView-->
+<!--            style="@style/header"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:fontFamily="@font/bold"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Today Attendance"/>-->
+<!--        <RadioGroup-->
+<!--            android:id="@+id/rbGroup"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" >-->
 
-            <RadioButton
-                android:id="@+id/rbLocal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Local" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbLocal"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Local" />-->
 
-            <RadioButton
-                android:id="@+id/rbOutstation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Out Station" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbOutstation"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Out Station" />-->
 
-            <RadioButton
-                android:id="@+id/rbExstation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ex Station" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbExstation"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Ex Station" />-->
 
-            <RadioButton
-                android:id="@+id/rbRegular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Office Regular Work" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbRegular"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Office Regular Work" />-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/placeLayout"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                app:errorEnabled="true"
-                android:layout_height="match_parent">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtPlace"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Place" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/placeLayout"-->
+<!--                android:visibility="gone"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                app:errorEnabled="true"-->
+<!--                android:layout_height="match_parent">-->
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:id="@+id/edtPlace"-->
+<!--                    android:fontFamily="@font/semibold"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Place" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <RadioButton
-                android:id="@+id/rbTraining"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Training" />
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbTraining"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Training" />-->
 
-            <RadioButton
-                android:id="@+id/rbMeeting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Meeting" />
-        </RadioGroup>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSubmit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Note: "
-            android:layout_marginBottom="5dp"
-            android:textStyle="bold"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FF0000"
-            android:layout_marginBottom="5dp"
-            android:text="&#8226; Attendance entered before 11am will be considered full working day."/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FF0000"
-            android:layout_marginBottom="5dp"
-            android:text="&#8226; Attendance entered between 11.01am to 1.00pm will be considered as 1/2 day leave."/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#FF0000"
-            android:layout_marginBottom="5dp"
-            android:text="&#8226; Attendance entered after 1.00pm will be considered as full day leave."/>
+<!--            <RadioButton-->
+<!--                android:id="@+id/rbMeeting"-->
+<!--                android:fontFamily="@font/semibold"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Meeting" />-->
+<!--        </RadioGroup>-->
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btnSubmit"-->
+<!--            android:fontFamily="@font/bold"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Submit"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Note: "-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:textStyle="bold"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#FF0000"-->
+<!--            android:fontFamily="@font/extralight"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:text="&#8226; Attendance entered before 11am will be considered full working day."/>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#FF0000"-->
+<!--            android:fontFamily="@font/extralight"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:text="&#8226; Attendance entered between 11.01am to 1.00pm will be considered as 1/2 day leave."/>-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="#FF0000"-->
+<!--            android:fontFamily="@font/extralight"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:text="&#8226; Attendance entered after 1.00pm will be considered as full day leave."/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
 
-</ScrollView>
+</FrameLayout>

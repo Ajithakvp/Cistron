@@ -3,12 +3,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.Report_and_reviews">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="20dp"
+          android:textColor="@color/black"
+          android:fontFamily="@font/extrabold"
+          android:text="@string/Report"
+          android:textSize="30dp" />
+
+
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="350dp"
+          app:cardCornerRadius="20dp"
+          android:backgroundTint="@color/skyblue"
+          android:layout_centerInParent="true"
+          android:layout_height="450dp">
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_marginTop="10dp"
+              android:id="@+id/rlAttendance"
+              android:layout_height="100dp">
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="20dp"
+                  android:id="@+id/tvAR"
+                  android:layout_centerInParent="true"
+                  android:fontFamily="@font/bold"
+                  android:textColor="@color/white"
+                  android:text="Attendance Reports"/>
+
+
+
+          </RelativeLayout>
+
+          <View
+              android:layout_width="match_parent"
+              android:layout_height="0.9dp"
+              android:id="@+id/View1"
+              android:layout_below="@+id/rlAttendance"
+              android:background="@color/white"/>
+
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_below="@id/View1"
+                  android:id="@+id/rlExpenseReport"
+                  android:layout_height="100dp">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerInParent="true"
+                      android:fontFamily="@font/bold"
+                      android:text="Expense Reports"
+                      android:textColor="@color/white"
+                      android:textSize="20dp" />
+
+
+
+              </RelativeLayout>
+
+              <View
+                  android:layout_width="match_parent"
+                  android:layout_height="0.9dp"
+                  android:id="@+id/View2"
+                  android:layout_below="@+id/rlExpenseReport"
+                  android:background="@color/white"/>
+
+
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_below="@id/View2"
+                  android:id="@+id/rlVisitEntryReport"
+                  android:layout_height="100dp">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="20dp"
+                      android:layout_centerInParent="true"
+                      android:fontFamily="@font/bold"
+                      android:textColor="@color/white"
+                      android:text="Visit Entry Reports"/>
+
+
+
+              </RelativeLayout>
+
+              <View
+                  android:layout_width="match_parent"
+                  android:layout_height="0.9dp"
+                  android:id="@+id/View3"
+                  android:layout_below="@+id/rlVisitEntryReport"
+                  android:background="@color/white"/>
+
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_below="@id/View3"
+                  android:id="@+id/rlQuoteReport"
+                  android:layout_height="100dp">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="20dp"
+                      android:layout_centerInParent="true"
+                      android:fontFamily="@font/bold"
+                      android:textColor="@color/white"
+                      android:text="Quote Reports"/>
+
+
+
+              </RelativeLayout>
+
+          </RelativeLayout>
+
+
+      </androidx.cardview.widget.CardView>
+
+      </RelativeLayout>
+
 
 </FrameLayout>

@@ -9,8 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static final String LOGINURL = "http://192.168.29.173/beta1/app/";
-   //private static final String LOGINURL = "https://cistronsystems.in/beta1/";
+   // private static final String LOGINURL = "http://192.168.29.173/beta1/app/";
+   private static final String LOGINURL = "https://cistronsystems.in/beta1/";
     private static ApiClient clientobject;
     private static Retrofit retrofit;
 

@@ -8,11 +8,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.cistron.Fragment.Attendence;
@@ -25,16 +31,52 @@ import com.example.cistron.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class Welcome extends AppCompatActivity {
-    private DrawerLayout mDrawer;
-    private Toolbar toolbar;
+
+
+   RelativeLayout rlhome,rlExpenseReport,rlQuoteReport;
     private NavigationView nvDrawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+
+
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        rlhome=findViewById(R.id.rlhome);
+        rlExpenseReport=findViewById(R.id.rlExpenseReport1);
+        rlQuoteReport=findViewById(R.id.rlQuoteReport);
+
+        rlQuoteReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Welcome.this, "dhhj", Toast.LENGTH_SHORT).show();
+                //finish();
+            }
+        });
+
+        rlExpenseReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+    Fragment fragment1=null;
+    FragmentManager fragmentManager=getSupportFragmentManager();
+    fragmentManager.beginTransaction().replace(R.id.flattnd,fragment1).commit();
+
+
+
+
+
+
+//              Intent intent=new Intent(Welcome.this,Attendence.class);
+//               startActivity(intent);
+            }
+        });
 
 
 
@@ -45,11 +87,9 @@ public class Welcome extends AppCompatActivity {
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        //navigationView.setCheckedItem(R.id.nav_camera);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-//        ImportFragment fragment = new ImportFragment();
-//        fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
+
+
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -58,23 +98,35 @@ public class Welcome extends AppCompatActivity {
 
                 int id = item.getItemId();
                 Fragment fragment = null;
+                rlhome.setVisibility(View.GONE);
                 FragmentManager fragmentManager = getSupportFragmentManager();
+
                 if (id == R.id.nav_Attendence) {
                     fragment = new Attendence();
+                    rlhome.setVisibility(View.GONE);
+
+
                 } else if (id == R.id.nav_Sales) {
                     fragment = new Sales();
+                    rlhome.setVisibility(View.GONE);
+
                 } else if (id == R.id.nav_Home) {
                     fragment = new Home();
+                    rlhome.setVisibility(View.GONE);
+
                 }else if (id == R.id.nav_Report) {
                     fragment = new Report_and_reviews();
+                    rlhome.setVisibility(View.GONE);
                 } else if (id == R.id.nav_Payment) {
+                    rlhome.setVisibility(View.GONE);
                     fragment = new Payment();
                 } else if (id == R.id.nav_Logout) {
-                    finish();
+                   fragment=new Fragment();
+                   finish();
                 }
-                fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
+               fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
+              drawer.closeDrawer(GravityCompat.START);
                 return true;
 
             }
@@ -86,6 +138,8 @@ public class Welcome extends AppCompatActivity {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+            rlhome.setVisibility(View.GONE);
+
         } else {
             super.onBackPressed();
         }

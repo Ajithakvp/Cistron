@@ -52,10 +52,11 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:id="@+id/edName"
+                android:fontFamily="@font/bold"
                 android:layout_marginTop="5dp"
                 android:layout_height="wrap_content"
                 android:hint="Employee ID"
-                android:text="E367"/>
+                android:text="E378"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -69,15 +70,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edPass"
+                android:fontFamily="@font/bold"
                 android:inputType="textPassword"
                 android:hint="Password"
-                android:text="3iS$sYs"/>
+                android:text="CIS@sys"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
             style="@style/textInput"
             android:layout_height="70dp"
+            android:fontFamily="@font/bold"
             app:layout_constraintTop_toBottomOf="@id/pass"
             android:backgroundTint="#1669c0"
             android:textColor="#FFF"
@@ -89,6 +92,7 @@
             android:textAlignment="center"
             android:id="@+id/tvForget"
             android:textStyle="bold"
+            android:fontFamily="@font/semibold"
             android:textColor="#943535"
             android:text="Forgot Password?"/>
 

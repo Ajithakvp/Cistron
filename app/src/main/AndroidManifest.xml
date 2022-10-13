@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Cistron"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.AttendanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Welcome"
             android:exported="false" />
         <activity

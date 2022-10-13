@@ -3,12 +3,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.Home">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <androidx.cardview.widget.CardView
+           android:id="@+id/cvHome"
+           android:layout_width="170dp"
+           android:layout_height="170dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="50dp"
+           android:backgroundTint="#87CEEB"
+           app:cardCornerRadius="10dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:fontFamily="@font/bold"
+               android:text="Home"
+               android:textColor="@color/white"
+               android:textSize="35dp" />
+
+
+       </androidx.cardview.widget.CardView>
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="170dp"
+           android:layout_marginTop="50dp"
+           app:cardCornerRadius="10dp"
+           android:layout_toRightOf="@id/cvHome"
+           android:layout_marginLeft="18dp"
+           android:backgroundTint="#FF0000"
+           android:layout_height="170dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/Attendence"
+               android:textColor="@color/white"
+               android:textSize="25dp"
+               android:layout_marginLeft="2dp"
+               android:fontFamily="@font/bold"
+               android:layout_gravity="center"/>
+
+
+
+       </androidx.cardview.widget.CardView>
+
+
+<!--       Next-->
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="170dp"
+           android:layout_marginTop="50dp"
+           android:id="@+id/cvMyCustomer"
+           android:layout_marginLeft="15dp"
+           android:layout_below="@id/cvHome"
+           app:cardCornerRadius="10dp"
+           android:backgroundTint="@color/design_default_color_primary"
+           android:layout_height="170dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="My Customer"
+               android:fontFamily="@font/bold"
+               android:textColor="@color/white"
+               android:textSize="25dp"
+               android:layout_gravity="center"/>
+
+
+       </androidx.cardview.widget.CardView>
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="170dp"
+           android:layout_marginTop="50dp"
+           app:cardCornerRadius="10dp"
+           android:layout_below="@id/cvHome"
+           android:layout_toRightOf="@id/cvMyCustomer"
+           android:layout_marginLeft="18dp"
+           android:backgroundTint="#FF0000"
+           android:layout_height="170dp">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Logout"
+               android:fontFamily="@font/bold"
+               android:textColor="@color/white"
+               android:textSize="25dp"
+               android:layout_marginLeft="1dp"
+               android:layout_gravity="center"/>
+
+
+       </androidx.cardview.widget.CardView>
+
+   </RelativeLayout>
 
 </FrameLayout>

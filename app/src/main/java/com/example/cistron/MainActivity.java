@@ -1,6 +1,8 @@
 package com.example.cistron;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 import com.example.cistron.Activity.Welcome;
 import com.example.cistron.DataParse.ApiClient;
 import com.example.cistron.DataParse.responsemodel;
+import com.example.cistron.Fragment.Attendence;
+import com.example.cistron.Fragment.Home;
 import com.example.cistron.InterFace.LoginInterFace;
 
 import retrofit2.Call;
@@ -64,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     if(response.isSuccessful()) {
+
+
 
                         Intent intent = new Intent(MainActivity.this, Welcome.class);
                         startActivity(intent);

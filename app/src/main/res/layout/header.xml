@@ -23,6 +23,7 @@
         android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:textSize="30dp"
+        android:fontFamily="@font/extrabold"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:text="cistron software "/>

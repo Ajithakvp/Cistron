@@ -37,6 +37,11 @@
     <style name="Theme.Cistron.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Cistron.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<style name="bold">
+
+    <item name="fontFamily">@font/semibold</item>
+</style>
+
 
 
 </resources>
