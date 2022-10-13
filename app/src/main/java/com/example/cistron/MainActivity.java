@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,14 +19,17 @@ import com.example.cistron.DataParse.responsemodel;
 import com.example.cistron.Fragment.Attendence;
 import com.example.cistron.Fragment.Home;
 import com.example.cistron.InterFace.LoginInterFace;
+import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText uname,pass;
+    TextInputEditText uname,pass;
     Button login_btn;
     TextView tvForget;
 
@@ -39,15 +43,16 @@ public class MainActivity extends AppCompatActivity {
         pass=findViewById(R.id.edPass);
         login_btn=findViewById(R.id.login_btn);
 
-        String UserName=uname.getText().toString();
-        String Password=pass.getText().toString();
+
 
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 try {
-                    Login(UserName, Password);
+                    Login();
                 }catch (Exception e){}
 
 
@@ -57,24 +62,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-     public void Login(String userName, String password) {
+     public void Login() {
         LoginInterFace loginInterFace=ApiClient.getClient().create(LoginInterFace.class);
 
-        Call<responsemodel> call=loginInterFace.getUserLogin(userName,password);
+        Call<responsemodel> call=loginInterFace.getUserLogin(uname.getText().toString(),pass.getText().toString());
 
         call.enqueue(new Callback<responsemodel>() {
             @Override
-            public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
+            public void onResponse(Call<responsemodel> call, Response<responsemodel> response)
+
+
+            {
+
+//                String msg=response.message().toString();
+//
+//           Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
 
                 try {
-                    if(response.isSuccessful()) {
 
+         if(response.isSuccessful()) {
 
-
+             Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, Welcome.class);
                         startActivity(intent);
-                    }
+         }
                 }catch (Exception e){
+                    String msg=response.message().toString();
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -83,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<responsemodel> call, Throwable t) {
 
-                Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });

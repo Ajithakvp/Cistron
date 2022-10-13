@@ -7,16 +7,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface LoginInterFace {
+public interface AttendanceInterface {
 
-   // login_chk1
+    //db_insert2.php?action=serv_attend&place=1&area=Trichy
 
     @FormUrlEncoded
-    @POST("login_chk1")
-    Call<responsemodel> getUserLogin(
-
-            @Field("empid") String ID,
-            @Field("pwd") String password
-    );
-
+    @POST("db_insert2.php")
+    Call<responsemodel> getAttendance(@Field("place") String place, @Field("area") String area);
 }

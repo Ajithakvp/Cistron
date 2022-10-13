@@ -2,6 +2,7 @@ package com.example.cistron.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,19 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.cistron.DataParse.ApiClient;
+import com.example.cistron.DataParse.responsemodel;
+import com.example.cistron.InterFace.AttendanceInterface;
+import com.example.cistron.Model.AttendanceModel;
 import com.example.cistron.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
 
@@ -28,6 +39,8 @@ public class AttendanceActivity extends AppCompatActivity {
     RadioButton rbLocal,rbOutstation,rbExstation,rbRegular,rbTraining,rbMeeting;
     Button btnSubmit;
     RadioGroup rbGroup;
+    AttendanceModel attendanceModel;
+    String str;
 
 
     @Override
@@ -47,8 +60,12 @@ public class AttendanceActivity extends AppCompatActivity {
         placeLayout=findViewById(R.id.placeLayout);
         rbGroup=findViewById(R.id.rbGroup);
 
+        attendanceModel=new AttendanceModel();
+        attendanceModel.setId(1);
+        attendanceModel.setPlace("Local");
 
 
+        String place=rbLocal.getText().toString();
         //Submit
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +73,10 @@ public class AttendanceActivity extends AppCompatActivity {
             public void onClick(View view) {
               rbLocal=rbGroup.findViewById(rbGroup.getCheckedRadioButtonId());
 
-              String Radio=rbLocal.getText().toString();
-                Toast.makeText(AttendanceActivity.this, Radio, Toast.LENGTH_SHORT).show();
+
+               //Toast.makeText(AttendanceActivity.this, Radio, Toast.LENGTH_SHORT).show();
+
+                callAttendance(place,edtPlace.getText().toString());
 
 
             }
@@ -67,6 +86,7 @@ public class AttendanceActivity extends AppCompatActivity {
 
 //RadioGroup
         rbGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
@@ -74,7 +94,13 @@ public class AttendanceActivity extends AppCompatActivity {
                int rg=rbGroup.indexOfChild(view);
 
                switch (rg){
-                   case 0:
+                   case R.id.rbLocal:
+
+
+                       rbLocal.setId(1);
+
+//                       attendanceModel.setId(1);
+//                       attendanceModel.setPlace("Local");
 
                        //Local
 
@@ -154,6 +180,33 @@ public class AttendanceActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    private void callAttendance(String place, String s) {
+
+        AttendanceInterface attendanceInterface= ApiClient.getClient().create(AttendanceInterface.class);
+        Call<responsemodel> call=attendanceInterface.getAttendance(place,s);
+        call.enqueue(new Callback<responsemodel>() {
+            @Override
+            public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
+                try {
+
+                    if (response.isSuccessful()){
+                        Toast.makeText(AttendanceActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<responsemodel> call, Throwable t) {
+
+
+            }
+        });
 
     }
 }
