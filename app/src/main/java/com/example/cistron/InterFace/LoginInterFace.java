@@ -12,7 +12,7 @@ public interface LoginInterFace {
    // login_chk1
 
     @FormUrlEncoded
-    @POST("login_chk1")
+    @POST("login_chk1.php")
     Call<responsemodel> getUserLogin(
 
             @Field("empid") String ID,

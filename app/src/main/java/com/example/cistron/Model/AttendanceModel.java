@@ -2,7 +2,7 @@ package com.example.cistron.Model;
 
 public class AttendanceModel {
 
-    private int Id;
+    private int   Id;
     private String Place;
 
     public int getId() {

@@ -21,7 +21,6 @@ import com.example.cistron.R;
 public class Attendence extends Fragment {
 
 
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,14 +67,12 @@ public class Attendence extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview= inflater.inflate(R.layout.fragment_attendence, container, false);
+        View rootview = inflater.inflate(R.layout.fragment_attendence, container, false);
 
 
         RelativeLayout b = (RelativeLayout) rootview.findViewById(R.id.rlAttendance1);
-        b.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
+        b.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AttendanceActivity.class);
                 startActivity(intent);
 

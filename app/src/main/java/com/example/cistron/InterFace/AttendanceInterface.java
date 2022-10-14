@@ -13,5 +13,5 @@ public interface AttendanceInterface {
 
     @FormUrlEncoded
     @POST("db_insert2.php")
-    Call<responsemodel> getAttendance(@Field("place") String place, @Field("area") String area);
+    Call<responsemodel> getAttendance(@Field("place") int place, @Field("area") String area);
 }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.cistron.DataParse.ApiClient;
 import com.example.cistron.DataParse.responsemodel;
+import com.example.cistron.Fragment.Attendence;
 import com.example.cistron.InterFace.AttendanceInterface;
 import com.example.cistron.Model.AttendanceModel;
 import com.example.cistron.R;
@@ -39,8 +40,7 @@ public class AttendanceActivity extends AppCompatActivity {
     RadioButton rbLocal,rbOutstation,rbExstation,rbRegular,rbTraining,rbMeeting;
     Button btnSubmit;
     RadioGroup rbGroup;
-    AttendanceModel attendanceModel;
-    String str;
+   int placeId;
 
 
     @Override
@@ -60,23 +60,25 @@ public class AttendanceActivity extends AppCompatActivity {
         placeLayout=findViewById(R.id.placeLayout);
         rbGroup=findViewById(R.id.rbGroup);
 
-        attendanceModel=new AttendanceModel();
-        attendanceModel.setId(1);
-        attendanceModel.setPlace("Local");
+
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
-        String place=rbLocal.getText().toString();
+
         //Submit
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              rbLocal=rbGroup.findViewById(rbGroup.getCheckedRadioButtonId());
 
 
-               //Toast.makeText(AttendanceActivity.this, Radio, Toast.LENGTH_SHORT).show();
 
-                callAttendance(place,edtPlace.getText().toString());
+                callAttendance();
 
 
             }
@@ -91,18 +93,13 @@ public class AttendanceActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
                View view=rbGroup.findViewById(i);
-               int rg=rbGroup.indexOfChild(view);
 
-               switch (rg){
-                   case R.id.rbLocal:
+             int rb=rbGroup.indexOfChild(view);
 
+               switch (rb){
+                   case 0:
+                       placeId=1;
 
-                       rbLocal.setId(1);
-
-//                       attendanceModel.setId(1);
-//                       attendanceModel.setPlace("Local");
-
-                       //Local
 
                        placeLayout.setVisibility(View.GONE);
                        rbLocal.setTextColor(Color.RED);
@@ -114,7 +111,10 @@ public class AttendanceActivity extends AppCompatActivity {
                        break;
                    case 1:
 
+
+
                        //Out Station
+                       placeId=2;
 
                        placeLayout.setVisibility(View.GONE);
                        rbOutstation.setTextColor(Color.RED);
@@ -127,6 +127,7 @@ public class AttendanceActivity extends AppCompatActivity {
                    case 2:
 
                        //Ex station
+                       placeId=11;
 
                        placeLayout.setVisibility(View.GONE);
                        rbExstation.setTextColor(Color.RED);
@@ -139,6 +140,7 @@ public class AttendanceActivity extends AppCompatActivity {
                    case 3:
 
                        //Office Regular
+                       placeId=4;
 
                        placeLayout.setVisibility(View.VISIBLE);
                        rbRegular.setTextColor(Color.RED);
@@ -152,7 +154,8 @@ public class AttendanceActivity extends AppCompatActivity {
                    case 5:
 
                        //Training
-                       Log.d(TAG, "onCheckedChanged:Click ");
+
+                       placeId=5;
 
                        placeLayout.setVisibility(View.GONE);
                        rbTraining.setTextColor(Color.RED);
@@ -165,6 +168,7 @@ public class AttendanceActivity extends AppCompatActivity {
                    case 6:
 
                        //Meeting
+                       placeId=6;
 
                        placeLayout.setVisibility(View.GONE);
                        rbMeeting.setTextColor(Color.RED);
@@ -183,22 +187,13 @@ public class AttendanceActivity extends AppCompatActivity {
 
     }
 
-    private void callAttendance(String place, String s) {
-
+    private void callAttendance() {
         AttendanceInterface attendanceInterface= ApiClient.getClient().create(AttendanceInterface.class);
-        Call<responsemodel> call=attendanceInterface.getAttendance(place,s);
+        Call<responsemodel> call=attendanceInterface.getAttendance(placeId,edtPlace.getText().toString());
         call.enqueue(new Callback<responsemodel>() {
             @Override
             public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
-                try {
-
-                    if (response.isSuccessful()){
-                        Toast.makeText(AttendanceActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    }
-
-                }catch (Exception e){
-
-                }
+                Toast.makeText(AttendanceActivity.this, "Success", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -207,6 +202,5 @@ public class AttendanceActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }

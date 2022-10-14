@@ -6,6 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/drawer_layout"
+
     android:layout_height="match_parent"
 
     >
@@ -29,10 +30,10 @@
                 android:layout_height="wrap_content">
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="10dp"
                     android:id="@+id/rlAttendance"
-                    android:layout_height="100dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:id="@+id/tvAR"
@@ -40,10 +41,9 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/bold"
-                        android:text="Home"
+                        android:text="Dashboard"
                         android:textColor="@color/white"
                         android:textSize="20dp" />
-
 
 
                 </RelativeLayout>
@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/bold"
-                        android:text="@string/Attendence"
+                        android:text="Attendence"
                         android:textColor="@color/white"
                         android:textSize="20dp" />
 

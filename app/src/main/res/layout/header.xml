@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:gravity="center_vertical"
-    android:backgroundTint="@color/cardview_dark_background"
+    android:backgroundTint="@color/skyblue"
     android:orientation="vertical"
 
     android:background="@color/white"
@@ -12,21 +12,24 @@
 
     <ImageView
         android:id="@+id/imageView"
+        android:visibility="gone"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="20dp"
         android:layout_height="wrap_content"
         android:src="@drawable/cis_icon" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_marginLeft="10dp"
-        android:textSize="30dp"
-        android:fontFamily="@font/extrabold"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+
         android:layout_height="wrap_content"
-        android:text="cistron software "/>
+        android:src="@drawable/logo_top"
+        app:tint="@color/white" />
+
+
 
 
 </LinearLayout>

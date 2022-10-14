@@ -2,28 +2,30 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rootLayout"
-    android:background="#1b7cd6"
+    android:background="@color/skyblue"
     tools:context=".MainActivity">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo_top"
+        app:layout_constraintBottom_toTopOf="@id/container"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/container"
-        />
+        app:tint="@color/white" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginHorizontal="20dp"
-        android:padding="20dp"
         android:background="@color/white"
         android:foregroundGravity="center_vertical"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -42,65 +44,64 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:viewBindingIgnore="true" />
 
+        <TextView
+            android:id="@+id/tvForget"
+            style="@style/textInput"
+            android:fontFamily="@font/semibold"
+            android:text="Forgot Password?"
+            android:textAlignment="center"
+            android:textColor="#943535"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/login_btn" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            style="@style/textInput"
+            android:layout_height="70dp"
+            android:backgroundTint="@color/skyblue"
+            android:fontFamily="@font/bold"
+            android:text="LOGIN"
+            android:textColor="#FFF"
+            app:layout_constraintTop_toBottomOf="@id/pass" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/uname"
             style="@style/textInput"
             app:endIconMode="clear_text"
-            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            app:errorEnabled="true"
             app:layout_constraintTop_toBottomOf="@id/imageView"
-            app:errorEnabled="true">
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/edName"
-                android:fontFamily="@font/bold"
-                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/bold"
                 android:hint="Employee ID"
-                android:text="E367"
-                />
+                android:text="E367" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/pass"
             style="@style/textInput"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            app:errorEnabled="true"
             app:layout_constraintTop_toBottomOf="@id/uname"
-            app:errorEnabled="true">
+            app:startIconDrawable="@drawable/ic_baseline_lock_24">
+
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/edPass"
                 android:fontFamily="@font/bold"
-                android:inputType="textPassword"
                 android:hint="Password"
-                android:text="3iS$sYs"
-                />
+                android:inputType="textPassword"
+                android:text="3iS$sYs" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/login_btn"
-            style="@style/textInput"
-            android:layout_height="70dp"
-            android:fontFamily="@font/bold"
-            app:layout_constraintTop_toBottomOf="@id/pass"
-            android:backgroundTint="#1669c0"
-            android:textColor="#FFF"
-            android:text="LOGIN" />
-
-        <TextView
-            style="@style/textInput"
-            app:layout_constraintTop_toBottomOf="@id/login_btn"
-            android:textAlignment="center"
-            android:id="@+id/tvForget"
-            android:textStyle="bold"
-            android:fontFamily="@font/semibold"
-            android:textColor="#943535"
-            android:text="Forgot Password?"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

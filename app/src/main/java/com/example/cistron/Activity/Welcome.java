@@ -35,6 +35,7 @@ public class Welcome extends AppCompatActivity {
 
    RelativeLayout rlhome,rlExpenseReport,rlQuoteReport;
     private NavigationView nvDrawer;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +46,19 @@ public class Welcome extends AppCompatActivity {
 
 
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         rlhome=findViewById(R.id.rlhome);
         rlExpenseReport=findViewById(R.id.rlExpenseReport1);
         rlQuoteReport=findViewById(R.id.rlQuoteReport);
 
+        setSupportActionBar(toolbar);
+
         rlQuoteReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Welcome.this, "dhhj", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Welcome.this, "Logout", Toast.LENGTH_SHORT).show();
                 //finish();
             }
         });
@@ -64,17 +67,12 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-    Fragment fragment1=null;
-    FragmentManager fragmentManager=getSupportFragmentManager();
-    fragmentManager.beginTransaction().replace(R.id.flattnd,fragment1).commit();
+//               Fragment attend=new Attendence();
+//FragmentManager fragmentManager=getSupportFragmentManager();
+//                fragmentManager.beginTransaction().add(R.id.drawer_layout,attend,null).commit();
+Intent intent=new Intent(Welcome.this,AttendanceActivity.class);
+startActivity(intent);
 
-
-
-
-
-
-//              Intent intent=new Intent(Welcome.this,Attendence.class);
-//               startActivity(intent);
             }
         });
 
@@ -123,6 +121,8 @@ public class Welcome extends AppCompatActivity {
                 } else if (id == R.id.nav_Logout) {
                    fragment=new Fragment();
                    finish();
+
+
                 }
                fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
