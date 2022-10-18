@@ -193,7 +193,15 @@ public class AttendanceActivity extends AppCompatActivity {
         call.enqueue(new Callback<responsemodel>() {
             @Override
             public void onResponse(Call<responsemodel> call, Response<responsemodel> response) {
-                Toast.makeText(AttendanceActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                try {
+
+                    if (response.isSuccessful()){
+                        Toast.makeText(AttendanceActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+                    Toast.makeText(AttendanceActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
