@@ -11,57 +11,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.example.cistron.Activity.AttendanceActivity;
+import com.example.cistron.Activity.ExpenseActivity;
+import com.example.cistron.Activity.LeaveActivity;
 import com.example.cistron.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Attendence#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Attendence extends Fragment {
 
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Attendence() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Attendence.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Attendence newInstance(String param1, String param2) {
-        Attendence fragment = new Attendence();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,7 +26,15 @@ public class Attendence extends Fragment {
         View rootview = inflater.inflate(R.layout.fragment_attendence, container, false);
 
 
+        //FindbyId
         RelativeLayout b = (RelativeLayout) rootview.findViewById(R.id.rlAttendance1);
+        RelativeLayout rlExpenseReport=rootview.findViewById(R.id.rlExpenseReport);
+        RelativeLayout rlVisitEntryReport=rootview.findViewById(R.id.rlVisitEntryReport);
+
+
+
+        //Intent
+
         b.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AttendanceActivity.class);
@@ -79,6 +43,26 @@ public class Attendence extends Fragment {
             }
 
         });
+
+
+        rlExpenseReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent expense=new Intent(getActivity(), ExpenseActivity.class);
+                startActivity(expense);
+            }
+        });
+
+
+        rlVisitEntryReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent leave=new Intent(getActivity(), LeaveActivity.class);
+                startActivity(leave);
+            }
+        });
+
+
 
         return rootview;
 

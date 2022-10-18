@@ -12,12 +12,13 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.example.cistron.Activity.AttendanceActivity;
+import com.example.cistron.Activity.MycustomerActivity;
 import com.example.cistron.R;
 
 
 public class Home extends Fragment {
 
-    RelativeLayout rlExpenseReport1;
+    RelativeLayout rlExpenseReport1,rlVisitEntryReport,rlQuoteReport;
 
 
 
@@ -30,12 +31,32 @@ public class Home extends Fragment {
 
 
         rlExpenseReport1=view.findViewById(R.id.rlExpenseReport1);
+        rlVisitEntryReport=view.findViewById(R.id.rlVisitEntryReport);
+        rlQuoteReport=view.findViewById(R.id.rlQuoteReport);
 
         rlExpenseReport1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getContext(),AttendanceActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        rlVisitEntryReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getContext(), MycustomerActivity.class);
+                startActivity(intent);
+            }
+        });
+        rlQuoteReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    finalize();
+                } catch (Throwable throwable) {
+                    throwable.printStackTrace();
+                }
             }
         });
 

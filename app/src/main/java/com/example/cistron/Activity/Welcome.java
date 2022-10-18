@@ -33,7 +33,7 @@ import com.google.android.material.navigation.NavigationView;
 public class Welcome extends AppCompatActivity {
 
 
-   RelativeLayout rlhome,rlExpenseReport,rlQuoteReport;
+   RelativeLayout rlhome,rlExpenseReport,rlQuoteReport,rlVisitEntryReport;
     private NavigationView nvDrawer;
     Toolbar toolbar;
     @Override
@@ -52,12 +52,15 @@ public class Welcome extends AppCompatActivity {
         rlhome=findViewById(R.id.rlhome);
         rlExpenseReport=findViewById(R.id.rlExpenseReport1);
         rlQuoteReport=findViewById(R.id.rlQuoteReport);
+        rlVisitEntryReport=findViewById(R.id.rlVisitEntryReport);
 
         setSupportActionBar(toolbar);
 
         rlQuoteReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                finish();
                 Toast.makeText(Welcome.this, "Logout", Toast.LENGTH_SHORT).show();
                 //finish();
             }
@@ -73,6 +76,15 @@ public class Welcome extends AppCompatActivity {
 Intent intent=new Intent(Welcome.this,AttendanceActivity.class);
 startActivity(intent);
 
+            }
+        });
+
+
+        rlVisitEntryReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Welcome.this,MycustomerActivity.class);
+                startActivity(intent);
             }
         });
 
