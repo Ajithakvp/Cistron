@@ -27,7 +27,7 @@ public class Attendence extends Fragment {
 
 
         //FindbyId
-        RelativeLayout b = (RelativeLayout) rootview.findViewById(R.id.rlAttendance1);
+        RelativeLayout b =  rootview.findViewById(R.id.rlAttendance1);
         RelativeLayout rlExpenseReport=rootview.findViewById(R.id.rlExpenseReport);
         RelativeLayout rlVisitEntryReport=rootview.findViewById(R.id.rlVisitEntryReport);
 

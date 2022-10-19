@@ -41,11 +41,6 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-
-
-
-
-
          toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -70,11 +65,11 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-//               Fragment attend=new Attendence();
-//FragmentManager fragmentManager=getSupportFragmentManager();
-//                fragmentManager.beginTransaction().add(R.id.drawer_layout,attend,null).commit();
-Intent intent=new Intent(Welcome.this,AttendanceActivity.class);
-startActivity(intent);
+            //               Fragment attend=new Attendence();
+           //FragmentManager fragmentManager=getSupportFragmentManager();
+         //                fragmentManager.beginTransaction().add(R.id.drawer_layout,attend,null).commit();
+          Intent intent=new Intent(Welcome.this,AttendanceActivity.class);
+          startActivity(intent);
 
             }
         });
@@ -115,7 +110,6 @@ startActivity(intent);
                     fragment = new Attendence();
                     rlhome.setVisibility(View.GONE);
 
-
                 } else if (id == R.id.nav_Sales) {
                     fragment = new Sales();
                     rlhome.setVisibility(View.GONE);
@@ -133,9 +127,15 @@ startActivity(intent);
                 } else if (id == R.id.nav_Logout) {
                    fragment=new Fragment();
                    finish();
-
+                    Toast.makeText(Welcome.this, "Log Out", Toast.LENGTH_SHORT).show();
 
                 }
+
+
+                //ID this passing in Fragment
+
+
+
                fragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit();
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
               drawer.closeDrawer(GravityCompat.START);

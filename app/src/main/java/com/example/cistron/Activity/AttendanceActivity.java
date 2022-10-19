@@ -64,6 +64,7 @@ public class AttendanceActivity extends AppCompatActivity {
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 onBackPressed();
             }
         });
@@ -75,12 +76,7 @@ public class AttendanceActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 callAttendance();
-
-
             }
         });
 
